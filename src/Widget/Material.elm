@@ -16,6 +16,7 @@ module Widget.Material exposing
     , sortTable
     , snackbar
     , tab, tabButton
+    , buttonBar
     )
 
 {-| This module implements a Material design theme for all widgets.
@@ -332,6 +333,22 @@ chip =
 --------------------------------------------------------------------------------
 -- APP BAR
 --------------------------------------------------------------------------------
+
+
+{-| An app bar with a menu on the left side
+
+![menuBar](https://orasund.github.io/elm-ui-widgets/assets/material/menuBar.png)
+
+-}
+buttonBar :
+    content
+    -> Palette
+    ->
+        AppBarStyle
+            content
+            msg
+buttonBar =
+    AppBar.buttonBar
 
 
 {-| An app bar with a menu on the left side

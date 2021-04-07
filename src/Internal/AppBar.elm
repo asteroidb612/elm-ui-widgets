@@ -1,4 +1,4 @@
-module Internal.AppBar exposing (AppBarStyle, menuBar, tabBar)
+module Internal.AppBar exposing (AppBarStyle, buttonBar, menuBar, tabBar)
 
 import Element exposing (Attribute, DeviceClass(..), Element)
 import Element.Input as Input
@@ -27,6 +27,33 @@ type alias AppBarStyle content msg =
             }
         }
     }
+
+
+buttonBar :
+    AppBarStyle (List (Button msg)) msg
+    ->
+        { title : Element msg
+        , deviceClass : DeviceClass
+        , openLeftSheet : Maybe msg
+        , openRightSheet : Maybe msg
+        , openTopSheet : Maybe msg
+        , primaryActions : List (Button msg)
+        , search : Maybe (TextInput msg)
+        }
+    -> Element msg
+buttonBar style m =
+    internalNav
+        []
+        { elementRow = style.elementRow
+        , content =
+            { menu =
+                { elementRow = style.content.menu.elementRow
+                }
+            , search = style.content.search
+            , actions = style.content.actions
+            }
+        }
+        m
 
 
 menuBar :

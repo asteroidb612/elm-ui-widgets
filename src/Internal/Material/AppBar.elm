@@ -1,4 +1,4 @@
-module Internal.Material.AppBar exposing (menuBar, tabBar)
+module Internal.Material.AppBar exposing (buttonBar, menuBar, tabBar)
 
 import Element exposing (Attribute)
 import Element.Background as Background
@@ -94,6 +94,10 @@ menuTabButton palette =
             }
         }
     }
+
+
+buttonBar =
+    internalBar
 
 
 menuBar :

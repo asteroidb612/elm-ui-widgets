@@ -22,6 +22,7 @@ module Widget exposing
     , TextInputStyle, TextInput, textInput
     , TabStyle, Tab, tab
     , ProgressIndicatorStyle, ProgressIndicator, circularProgressIndicator
+    , buttonBar
     )
 
 {-| This module contains different stateless view functions. No wiring required.
@@ -1533,6 +1534,24 @@ menuBar :
     -> Element msg
 menuBar =
     AppBar.menuBar
+
+
+{-| A bar to gate action based on a result.
+-}
+buttonBar :
+    AppBarStyle (List (Button msg)) msg
+    ->
+        { title : Element msg
+        , deviceClass : DeviceClass
+        , openLeftSheet : Maybe msg
+        , openRightSheet : Maybe msg
+        , openTopSheet : Maybe msg
+        , primaryActions : List (Button msg)
+        , search : Maybe (TextInput msg)
+        }
+    -> Element msg
+buttonBar =
+    AppBar.buttonBar
 
 
 {-| A app bar with tabs instead of a menu.
