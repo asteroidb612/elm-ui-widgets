@@ -96,6 +96,7 @@ menuTabButton palette =
     }
 
 
+buttonBar : content -> Palette -> AppBarStyle content msg
 buttonBar =
     internalBar
 

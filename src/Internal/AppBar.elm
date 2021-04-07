@@ -41,19 +41,29 @@ buttonBar :
         , search : Maybe (TextInput msg)
         }
     -> Element msg
-buttonBar style m =
-    internalNav
-        []
-        { elementRow = style.elementRow
-        , content =
-            { menu =
-                { elementRow = style.content.menu.elementRow
+buttonBar style model =
+    let
+        rightButtons =
+            style.content.menu.content
+                |> List.map
+                    (Button.button
+                        (style.content.actions.content.button
+                            |> Customize.elementButton [ Element.width Element.shrink ]
+                        )
+                    )
+
+        styleSubset =
+            { elementRow = style.elementRow
+            , content =
+                { menu =
+                    { elementRow = style.content.menu.elementRow
+                    }
+                , search = style.content.search
+                , actions = style.content.actions
                 }
-            , search = style.content.search
-            , actions = style.content.actions
             }
-        }
-        m
+    in
+    internalNav rightButtons styleSubset model
 
 
 menuBar :
