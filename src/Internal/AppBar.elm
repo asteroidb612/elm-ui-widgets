@@ -62,8 +62,11 @@ buttonBar style model =
                 , actions = style.content.actions
                 }
             }
+
+        title =
+            model.title
     in
-    internalNav rightButtons styleSubset model
+    internalNav (title :: rightButtons) styleSubset model
 
 
 menuBar :
