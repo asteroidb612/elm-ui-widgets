@@ -53,7 +53,7 @@ buttonBar style model =
                     )
 
         styleSubset =
-            { elementRow = style.elementRow ++ [ Element.paddingXY 40 0 ]
+            { elementRow = style.elementRow ++ [ Element.paddingXY 20 0 ]
             , content =
                 { menu =
                     { elementRow = style.content.menu.elementRow
