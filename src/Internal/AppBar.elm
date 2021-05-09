@@ -53,7 +53,7 @@ buttonBar style model =
                     )
 
         styleSubset =
-            { elementRow = style.elementRow
+            { elementRow = style.elementRow ++ [ Element.paddingXY 40 0 ]
             , content =
                 { menu =
                     { elementRow = style.content.menu.elementRow
@@ -94,7 +94,7 @@ menuBar style m =
             }
         , m.title |> Element.el style.content.menu.content.title
         ]
-        { elementRow = style.elementRow
+        { elementRow = Element.padding 400 :: style.elementRow
         , content =
             { menu =
                 { elementRow = style.content.menu.elementRow
